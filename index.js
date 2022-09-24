@@ -49,10 +49,11 @@ buttonHandler(nopeBtn, nope)
 
 
 function render(){
-    if (index > data.length -1){
-        document.querySelector(".container").innerHTML = dog.getEnd(likeReaction.length);
-    }else{
+    if (index < data.length){
         document.querySelector(".container").innerHTML = dog.renderDogs();
+    }else{
+        document.querySelector(".container").innerHTML = dog.getEnd(likeReaction.length);
+
     }
    
 }

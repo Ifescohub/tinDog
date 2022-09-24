@@ -58,6 +58,10 @@ main{
 
 }
 
+.container{
+    height: 25.5rem;
+}
+
 .dog-img img{
     border-radius: 20px;
 }
