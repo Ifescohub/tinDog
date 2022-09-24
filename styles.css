@@ -1,0 +1,140 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+:root{
+
+    /* linear-gradient(228.9deg, #00D894 10.21%, #56E9CD 71.53%);
+    linear-gradient(225.83deg, #E82D70 -9.5%, #F06957 109.5%); */
+
+    --clr-bg: linear-gradient(180deg, #FFFFFF 0%, #F6F7FB 100%);
+    --clr-hover1: #f0695756;
+    --clr-hover2: #56e9ce36;
+    --clr-primary: #F8F8F8;
+    --clr-secondary: #B7B7B7;
+    --clr-white: #FFFFFF;
+}
+
+
+/* RESET  */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: var(--clr-bg);
+    color: var(--clr-primary);
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+main{
+    border: 1rem solid rgb(241, 239, 252);
+    border-radius: 20px;
+    box-shadow: 0 0 5px 2px #808080;
+    width: 20rem;
+    max-width: 95%;
+    margin-inline: auto;
+    position: relative;
+}
+
+.nav-icons img{
+    width: 2.5rem;
+}
+
+.nav-icons img:first-of-type,
+.nav-icons img:last-of-type{
+    width: 1.5rem;
+}
+
+.nav-icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+
+}
+
+.dog-img img{
+    border-radius: 20px;
+}
+
+img{
+    max-width: 100%;
+}
+
+.description{
+    position: absolute;
+    bottom: 5.5rem;
+    left: 0.5rem;
+    padding-inline-end: 1rem;
+}
+
+.description p{
+    font-size: 0.8rem;
+    color: var(--clr-secondary)
+}
+
+/* REACTIONS */
+.reactions img{
+    position: absolute;
+    width: 8rem;
+    top: 5rem;
+    left: 0.5rem;
+    transform: rotate(-50deg);
+    z-index: -1;
+}
+
+.reactions img.active{
+    z-index: 1;
+}
+
+
+/* BUTOON IMAGES */
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-block: 0.6rem;
+}
+
+.buttons img{
+    background: var(--clr-white);
+    padding: 0.7rem;
+    border-radius: 50%;
+    width: 3rem;
+}
+
+.buttons img:first-of-type:hover,
+.buttons img:first-of-type.active{
+    background: var(--clr-hover1);
+}
+
+.buttons img:last-of-type:hover,
+.buttons img:last-of-type.active{
+    background: var(--clr-hover2);
+}
+
+
+.endMessage{
+    background: #00D894;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1.2rem;
+    
+}
+
+.endMessage h2{
+    margin-block: 3rem;
+}
+
+.endMessage img{
+    width: 9rem;
+    margin-block: 2rem 6rem;
+}
