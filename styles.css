@@ -86,10 +86,12 @@ img{
     left: 0.5rem;
     transform: rotate(-50deg);
     z-index: -1;
+    display: none;
 }
 
 .reactions img.active{
     z-index: 1;
+    display: block;
 }
 
 

@@ -12,8 +12,7 @@ let waiting = false
 
 //Function to get new instance of dog from the Dog Class
 function getNewDog(){
-        let newDog = new Dog(data[index]);
-        return newDog
+    return new Dog(data[index]);
 }
 
 function swipe(){
@@ -24,7 +23,7 @@ function swipe(){
 
 function buttonHandler(button, reaction){
     button.addEventListener("click", ()=>{
-        if (index < data.length && !waiting){
+        if (index < data.length){
             
             reaction.classList.add("active");
             button.classList.add("active");
@@ -36,8 +35,7 @@ function buttonHandler(button, reaction){
             }, 1000);
     
             if (reaction.id == "like"){
-                likeReaction.push(reaction.id)
-                
+                likeReaction.push(reaction.id)     
             }
         }else{
             location.reload(true);
@@ -48,9 +46,6 @@ function buttonHandler(button, reaction){
 buttonHandler(likeBtn, like)
 buttonHandler(nopeBtn, nope)
 
-function endApp(){
-    document.querySelector(".container").innerHTML = dog.getEnd(likeReaction.length);
-}
 
 
 function render(){
