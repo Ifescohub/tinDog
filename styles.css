@@ -1,5 +1,5 @@
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"); */
 
 :root{
 
@@ -33,10 +33,11 @@ body{
 
 main{
     border: 1rem solid rgb(241, 239, 252);
-    border-radius: 20px;
+    border-radius: 1.5rem;
     box-shadow: 0 0 5px 2px #808080;
     width: 20rem;
     max-width: 95%;
+    max-height: 100vh;
     margin-inline: auto;
     position: relative;
 }
@@ -64,6 +65,9 @@ main{
 
 .dog-img img{
     border-radius: 20px;
+    /* height: 100%;
+    width: 100%;
+    object-fit: cover; */
 }
 
 img{
@@ -89,13 +93,6 @@ img{
     top: 5rem;
     left: 0.5rem;
     transform: rotate(-50deg);
-    z-index: -1;
-    display: none;
-}
-
-.reactions img.active{
-    z-index: 1;
-    display: block;
 }
 
 

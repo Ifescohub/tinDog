@@ -1,12 +1,18 @@
 
+
 class Dog {
     constructor(data) {
         Object.assign(this, data);
-        
+     
     }
 
-    getEnd(stat){
-        
+    renderReactionHTML(status){
+        return status 
+        ?   `<img id="like" src="images/badge-like.png" alt="">`
+        :   `<img id="nope" src="images/badge-nope.png" alt="">`
+    }
+
+    renderEnding(stat){
             return `
             <div class="endMessage">
                  <h2>Yo, You loved ${stat}</h2>
@@ -14,9 +20,7 @@ class Dog {
                      <img src="images/logo.png" alt="">
                  </picture>
              </div>
-         `
-        
-           
+         `        
     }
 
     renderDogs(){

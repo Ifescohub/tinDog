@@ -3,39 +3,43 @@ import Dog from "./Dog.js";
 
 const likeBtn = document.getElementById("like-btn");
 const nopeBtn = document.getElementById("nope-btn");
-const like = document.getElementById("like");
-const nope = document.getElementById("nope");
+
 
 let index = 0;
 let likeReaction = [];
-let waiting = false
+let status;
+let isWaiting = false
 
 //Function to get new instance of dog from the Dog Class
 function getNewDog(){
     return new Dog(data[index]);
 }
 
+//Function to swipe to different dogs
 function swipe(){
-        index++
-        dog = getNewDog();
-        render();
+    if (!isWaiting){
+        renderReaction();
+        isWaiting = true
+        index++;
+    
+        setTimeout(()=>{
+            dog = getNewDog();
+            render();
+            isWaiting = false
+        }, 1000);
+    }
+   
 }
 
-function buttonHandler(button, reaction){
-    button.addEventListener("click", ()=>{
+//Formatting button clicks
+function buttonHandler(button, boolen){
+    button.addEventListener("click", (e)=>{
         if (index < data.length){
-            
-            reaction.classList.add("active");
-            button.classList.add("active");
-            
-            setTimeout(()=>{
-                reaction.classList.remove("active");
-                button.classList.remove("active");
-                swipe();
-            }, 1000);
+            status = boolen
+            swipe()
     
-            if (reaction.id == "like"){
-                likeReaction.push(reaction.id)     
+            if (button == likeBtn){
+                likeReaction.push(e.clientX)    
             }
         }else{
             location.reload(true);
@@ -43,20 +47,28 @@ function buttonHandler(button, reaction){
     })    
 }
 
-buttonHandler(likeBtn, like)
-buttonHandler(nopeBtn, nope)
+buttonHandler(likeBtn, true)
+buttonHandler(nopeBtn, false)
 
+
+function renderReaction(){
+    let reactionEl = document.querySelector(".reactions");
+    
+    reactionEl.innerHTML = dog.renderReactionHTML(status);
+    setTimeout(() => {
+        reactionEl.innerHTML = "";    
+    }, 1000);
+}
 
 
 function render(){
-    if (index < data.length){
-        document.querySelector(".container").innerHTML = dog.renderDogs();
-    }else{
-        document.querySelector(".container").innerHTML = dog.getEnd(likeReaction.length);
-
-    }
-   
+    let containerEl =  document.querySelector(".container");
+    
+    return index < data.length 
+    ?   containerEl.innerHTML = dog.renderDogs()
+    :   containerEl.innerHTML = dog.renderEnding(likeReaction.length);
 }
 
 let dog = getNewDog();
 render();
+
