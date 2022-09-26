@@ -64,9 +64,9 @@ main{
 
 .dog-img img{
     border-radius: 20px;
-    /* height: 100%;
+    height: 100%;
     width: 100%;
-    object-fit: cover; */
+    object-fit: cover;
 }
 
 img{
